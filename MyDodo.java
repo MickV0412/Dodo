@@ -15,7 +15,6 @@ public class MyDodo extends Dodo
     }
 
     public void act() {
-        layEggIfPossible();
     }
 
     /**
@@ -135,5 +134,9 @@ public class MyDodo extends Dodo
         if ( canLayEgg () ){
             layEgg();
         }
+    }
+    public void turn180(){
+        turnRight();
+        turnRight();
     }
 }
