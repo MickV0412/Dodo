@@ -41,7 +41,7 @@ public class MyDodo extends Dodo
      * 
      * @return boolean true if Dodo can move (no obstructions ahead)
      *                 false if Dodo can't move
-     *                      (an obstruction or end of world ahead)
+     *                      (an obstruction or end of worl ahead)
      */
     public boolean canMove() {
         if ( borderAhead() ){
@@ -89,8 +89,14 @@ public class MyDodo extends Dodo
         int nrStepsTaken = 0;               // set counter to 0
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
             move();                         // take a step
-            nrStepsTaken++;                 // increment the counter
+            nrStepsTaken++; 
+            if ( borderAhead ()){
+                System.out.println(" Cant take anymore steps");
+            }else {
+            System.out.println("Moved" + nrStepsTaken);
+            
         }
+    }
     }
 
     
@@ -106,7 +112,7 @@ public class MyDodo extends Dodo
 
     public void walkToWorldEdgePrintingCoordinates( ){
         while( ! borderAhead() ){
-            // print coordinates
+             // print coordinates
             move();
         }
     }
