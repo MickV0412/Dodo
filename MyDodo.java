@@ -79,6 +79,24 @@ public class MyDodo extends Dodo
             showError( "There was no egg in this cell" );
         }
     }
+    public boolean grainAhead(){
+        move();
+        if(onGrain() == true){
+        turnRight();
+        turnRight();
+        move();
+        turnRight();
+        turnRight();
+        return true;
+        }else{
+        turnRight();
+        turnRight();
+        move();
+        turnRight();
+        turnRight();
+        return false;
+        }
+        }
     
     /**
      * Returns the number of eggs Dodo has hatched so far.
