@@ -50,6 +50,11 @@ public class MyDodo extends Dodo
             return true;
         }
     }
+    /**
+     
+       climbs over fence 
+       * 
+     */
     public void climbOverFence(){
         if (fenceAhead ()){
             turnLeft();
@@ -79,6 +84,11 @@ public class MyDodo extends Dodo
             showError( "There was no egg in this cell" );
         }
     }
+    /**
+     checks if grain is ahead 
+     *
+     */
+    
     public boolean grainAhead(){
         move();
         if(onGrain() == true){
@@ -168,11 +178,19 @@ public class MyDodo extends Dodo
             return true;
         }
     }  
+    /**
+     if canlayegg is true then lay egg
+     
+     */
     public void layEggIfPossible(){
         if ( canLayEgg () ){
             layEgg();
         }
     }
+    /** 
+     turns twice so it turns 180 degrees 
+     
+     */
     public void turn180(){
         turnRight();
         turnRight();
