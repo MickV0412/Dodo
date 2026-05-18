@@ -210,5 +210,14 @@ public class MyDodo extends Dodo
         move();
     }
 }
-    }   
+    }
+    public void pickUpGrainsAndPrintCoordinates(){
+        while ( !borderAhead()){
+            move();
+            if (onGrain()){
+            pickUpGrain();
+            System.out.println(getX() + " " + getY());
+            }
+        }
+    }
 }
