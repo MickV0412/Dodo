@@ -150,11 +150,8 @@ public class MyDodo extends Dodo
      *              Coordinates of each cell printed in the console.
      */
 
-    public void walkToWorldEdgePrintingCoordinates( ){
+    public void walkToWorldEdge( ){
         while( ! borderAhead() ){
-            getY();
-            getX();
-            System.out.println("Coordinates:" +" X: " + getX() + ", Y: "  + getY());
             move();
         }
     }
