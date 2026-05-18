@@ -187,6 +187,11 @@ public class MyDodo extends Dodo
             layEgg();
         }
     }
+    public void goToEgg(){
+        while ( !onEgg() ){
+            move();
+        }
+    }
     /** 
      turns twice so it turns 180 degrees 
      
