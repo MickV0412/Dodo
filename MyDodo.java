@@ -197,4 +197,9 @@ public class MyDodo extends Dodo
         turnRight();
         turnRight();
     }
+    public void goBackToStartOfRowAndFaceBack (){
+        turn180();
+        walkToWorldEdge();
+        turn180();
+    }
 }
