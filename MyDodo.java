@@ -202,22 +202,28 @@ public class MyDodo extends Dodo
         walkToWorldEdge();
         turn180();
     }
+    /**
+      This method checks if the fence is ahead and then climbs over the fence 
+    **/
     public void walkToWorldEdgeClimbingOverFences(){
-    while( !borderAhead() ){
-    if( fenceAhead() ){
-        climbOverFence();
-    } else {
-        move();
-    }
-}
-    }
-    public void pickUpGrainsAndPrintCoordinates(){
-        while ( !borderAhead()){
+        while( !borderAhead() ){
+        if( fenceAhead() ){
+            climbOverFence();
+        } else {
             move();
-            if (onGrain()){
-            pickUpGrain();
-            System.out.println(getX() + " " + getY());
-            }
+        }
+    }
+    }
+    /**
+    Checks if there is a grain if there is its it picks the grain up and prints the cordinates 
+    **/   
+    public void pickUpGrainsAndPrintCoordinates(){
+            while ( !borderAhead()){
+                move();
+                if (onGrain()){
+                pickUpGrain();
+                System.out.println(getX() + " " + getY());
+                }
         }
     }
 }
