@@ -138,10 +138,6 @@ public class MyDodo extends Dodo
         }
     }
     }
-
-    
-    
-    
     /**
      * Walks to edge of the world printing the coordinates at each step
      * 
@@ -226,4 +222,58 @@ public class MyDodo extends Dodo
                 }
         }
     }
+    public void stepOneCellBackwards(){
+        turn180();
+        move();
+        turn180();
+    }
+    public void eggTrailToNest(){
+        while( !onNest() ){
+            while( !eggAhead() ){
+            turnRight();
+        }
+    move();
+    }
+    }
+    public boolean eggAhead(){
+        move();
+        if(onEgg() == true){
+        turnRight();
+        turnRight();
+        move();
+        turnRight();
+        turnRight();
+        return true;
+        }else{
+        turnRight();
+        turnRight();
+        move();
+        turnRight();
+        turnRight();
+        return false;
+        }
+        }
+    /**
+    Loopt naar het einde van de wereld 
+    als er een nest is zonder ei legt ze een ei       
+    **/
+    public void noDoubleEggs() {
+    while (!borderAhead()) {
+        move();
+        if (onNest() && !onEgg()) {
+            layEgg();
+        }
+    }
+    }
+    public void walkToNestClimbingOverFences() {
+    while (!onNest()) {
+        if (fenceAhead()) {
+            climbOverFence();
+        } else {
+            move();
+        }
+    }
+    layEgg();
+    }
+
 }
