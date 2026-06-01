@@ -328,4 +328,5 @@ public class MyDodo extends Dodo
     showCompliment("Aantal eieren: " + count);
     return count;
     }
+    public void layTrailOfEggs
 }
