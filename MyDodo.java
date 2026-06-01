@@ -306,10 +306,26 @@ public class MyDodo extends Dodo
         move();
     }
     }
+    public boolean validCoordinates(int x, int y) {
+    boolean valid = x >= 0 && x < getWorld().getWidth() && y >= 0 && y < getWorld().getHeight();
+    if (!valid) showError("Invalid coordinates");
+    return valid;
+    }
     public void goToLocation(int coordX, int coordY) {
     while (getX() < coordX) { faceDirection(EAST);  move(); }
     while (getX() > coordX) { faceDirection(WEST);  move(); }
     while (getY() < coordY) { faceDirection(SOUTH); move(); }
     while (getY() > coordY) { faceDirection(NORTH); move(); }
+    }
+    public int countEggsInRow() {
+    int count = 0;
+    if (onEgg()) count++;
+    while (!borderAhead()) {
+        move();
+        if (onEgg()) count++;
+    }
+    goBackToStartOfRowAndFaceBack();
+    showCompliment("Aantal eieren: " + count);
+    return count;
     }
 }
