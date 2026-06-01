@@ -284,9 +284,26 @@ public class MyDodo extends Dodo
         }
     }
     }
+    /**
+     * kijkt naar de kant waar je hem naartoe wil kijken
+     *
+     */
     public void faceDirection(int direction) {
     while (getDirection() != direction) {
             turnRight();
         }
+    }
+    /**
+     * Loopt door het doolhof naar het nest via de linkerhand regel.
+     * 
+     */
+    public void solveMaze() {
+    while (!onNest()) {
+        turnLeft();
+        while (fenceAhead() || borderAhead()) {
+            turnRight();
+        }
+        move();
+    }
     }
 }
