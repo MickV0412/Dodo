@@ -306,4 +306,10 @@ public class MyDodo extends Dodo
         move();
     }
     }
+    public void goToLocation(int coordX, int coordY) {
+    while (getX() < coordX) { faceDirection(EAST);  move(); }
+    while (getX() > coordX) { faceDirection(WEST);  move(); }
+    while (getY() < coordY) { faceDirection(SOUTH); move(); }
+    while (getY() > coordY) { faceDirection(NORTH); move(); }
+    }
 }
