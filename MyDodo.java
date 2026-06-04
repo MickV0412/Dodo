@@ -342,4 +342,15 @@ public class MyDodo extends Dodo
     }
     return total;
     }
+    public void monumentOfEggs() {
+    for (int row = 0; row < getWorld().getHeight(); row++) {
+        int eggs = Math.min(row + 1, getWorld().getWidth());
+        goToLocation(0, row);
+        faceDirection(EAST);
+        for (int col = 0; col < eggs; col++) {
+            layEggIfPossible();
+            if (col < eggs - 1) step();
+        }
+    }
+    }
 }
