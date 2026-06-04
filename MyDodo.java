@@ -328,5 +328,18 @@ public class MyDodo extends Dodo
     showCompliment("Aantal eieren: " + count);
     return count;
     }
-    public void layTrailOfEggs
+    public void layTrailOfEggs(int n) {
+    for (int i = 0; i < n; i++) {
+        layEgg();
+        move();
+    }
+    }
+    public int countEggsInWorld() {
+    int total = 0;
+    for (int row = 0; row < getWorld().getHeight(); row++) {
+        goToLocation(0, row);
+        total += countEggsInRow();
+    }
+    return total;
+    }
 }
