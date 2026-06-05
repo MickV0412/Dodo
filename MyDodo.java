@@ -353,4 +353,19 @@ public class MyDodo extends Dodo
         }
     }
     }
+    public void stevigMonument() {
+    int eggs = 1;
+    for (int row = 0; row < getWorld().getHeight(); row++) {
+        goToLocation(0, row);
+        faceDirection(EAST);
+        for (int col = 0; col < eggs && col < getWorld().getWidth(); col++) {
+            layEggIfPossible();
+            if (col < eggs - 1 && col < getWorld().getWidth() - 1) step();
+        }
+        eggs = eggs * 2;
+    }
+    }
+    public void piramidOfEggs(){
+        
+    }
 }
