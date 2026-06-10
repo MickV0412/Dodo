@@ -365,7 +365,31 @@ public class MyDodo extends Dodo
         eggs = eggs * 2;
     }
     }
-    public void piramidOfEggs(){
-    
+    public int countEggsInColumn() {
+    int count = 0;
+    faceDirection(SOUTH);
+    if (onEgg()) count++;
+    while (!borderAhead()) {
+        move();
+        if (onEgg()) count++;
     }
+    faceDirection(NORTH);
+    walkToWorldEdge();
+    return count;
+    }
+
+    public void addParityBits() {
+    for (int row = 0; row < getWorld().getHeight(); row++) {
+        goToLocation(0, row);
+        if (countEggsInRow() % 2 != 0) {
+            layEgg();
+        }
+    }
+    for (int col = 0; col < getWorld().getWidth(); col++) {
+        goToLocation(col, 0);
+        if (countEggsInColumn() % 2 != 0) {
+            layEgg();
+        }
+    }
+    } 
 }
