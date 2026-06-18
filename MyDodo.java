@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -392,4 +395,68 @@ public class MyDodo extends Dodo
         }
     }
     } 
+        /**
+     * Places all the Egg objects in the world in a list.
+     * 
+     * @return List of Egg objects in the world
+     */
+    public List<Egg> getListOfEggsInWorld() {
+        return getWorld().getObjects(Egg.class);
+    }
+
+    public List<Integer> createListOfNumbers() {
+        return new ArrayList<> (Arrays.asList( 2, 43, 7, -5, 12, 7 ));
+    }
+
+    /**
+     * Method for praciticing with lists.
+     */
+    public void practiceWithLists( ){
+        List<Integer> listOfNumbers = createListOfNumbers();
+        
+        //the following is incorrect and is to be fixed in challenge 6.1c
+        System.out.println("First element: " + listOfNumbers.get(0) ); 
+    }
+
+    public void practiceWithListsOfSurpriseEggs( ){
+        List<SurpriseEgg>  listOfEgss = SurpriseEgg.generateListOfSurpriseEggs( 12, getWorld() );
+    }
+    // Makes a list of 10 surprise eggs placed in the world
+    public List<SurpriseEgg> makeListOfSurpriseEggs() {
+    return SurpriseEgg.generateListOfSurpriseEggs(10, getWorld());
+    }
+    // Prints X and Y position of one egg 
+    public void printCoordinatesOfEgg(Egg egg){
+    System.out.println("X: " + egg.getX() + ",Y:" + egg.getY());
+    }
+    // Makes a list and prints the coordinate using for each loop 
+    public void makeListOfSurpriseEggsAndPrintCoordinates(){
+        List<SurpriseEgg> eggs = makeListOfSurpriseEggs();
+        for(SurpriseEgg egg : eggs){
+            printCoordinatesOfEgg(egg);
+        }
+    }
+    // Prints the coordinates AND value of one egg
+    public void printCoordinatesAndValueOfEgg(Egg egg) {
+    System.out.println("X: " + egg.getX() + ", Y: " + egg.getY() + ", Value: " + egg.getValue());
+    }
+    public void findMostValuableEgg(){
+        List<SurpriseEgg> eggs = makeListOfSurpriseEggs();
+        
+        Egg mostValuable = eggs.get(0);
+        
+        for (SurpriseEgg egg : eggs){
+            if(egg.getValue() > mostValuable.getValue()){
+                mostValuable = egg;
+            }
+        }
+        // Print coordinates and values of eggs 
+        System.out.println(" All eggs" );
+        for (SurpriseEgg egg : eggs){
+            printCoordinatesAndValueOfEgg(egg);
+        }
+        // Prints the winner
+        System.out.println("-- Most valuable --");
+        printCoordinatesAndValueOfEgg(mostValuable);
+    }
 }
