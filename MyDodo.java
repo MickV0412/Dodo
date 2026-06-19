@@ -425,6 +425,14 @@ public class MyDodo extends Dodo
     public List<SurpriseEgg> makeListOfSurpriseEggs() {
     return SurpriseEgg.generateListOfSurpriseEggs(10, getWorld());
     }
+    public void averageValue(){
+    List <SurpriseEgg> list = makeListOfSurpriseEggs();
+    int total =0;
+    for(SurpriseEgg egg : list){
+    total = total + egg.getValue();
+    System.out.println((double) total / list.size());
+    }   
+    }
     // Prints X and Y position of one egg 
     public void printCoordinatesOfEgg(Egg egg){
     System.out.println("X: " + egg.getX() + ",Y:" + egg.getY());
@@ -458,5 +466,8 @@ public class MyDodo extends Dodo
         // Prints the winner
         System.out.println("-- Most valuable --");
         printCoordinatesAndValueOfEgg(mostValuable);
+    }
+    public void findAverageValueEgg(){
+        
     }
 }
