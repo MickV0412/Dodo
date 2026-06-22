@@ -467,7 +467,14 @@ public class MyDodo extends Dodo
         System.out.println("-- Most valuable --");
         printCoordinatesAndValueOfEgg(mostValuable);
     }
-    public void findAverageValueEgg(){
-        
+    public void moveRandomly(){
+        int nrOfStepsTaken = 0;
+        while(nrOfStepsTaken < Mauritius.MAXSTEPS){
+        faceDirection(randomDirection());
+        if(canMove()){
+            move();
+            nrOfStepsTaken++; 
+        }
+    }
     }
 }
